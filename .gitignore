@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Generated content (rebuilt by the pipeline, not committed)
+public/data/*.json
+
+# Env / secrets
+.env
+*.local.env
+
+# Docker / DB
+mysql-data/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
