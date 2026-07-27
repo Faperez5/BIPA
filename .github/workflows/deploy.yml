@@ -1,0 +1,60 @@
+name: Deploy games to Hostinger
+
+# Builds the static games (Python content pipeline -> public/data/*.json)
+# and ships public/ to the Hostinger games subdomain via FTP/SFTP.
+# See DEPLOY.md for the one-time Hostinger-side setup this depends on.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: bipa
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Apply migrations
+        run: make migrate
+
+      - name: Load content into MySQL
+        run: make load
+
+      - name: Run tests
+        run: make test
+
+      - name: Export static JSON
+        run: make export
+
+      - name: Deploy public/ to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir: ./public/
+          server-dir: ${{ secrets.HOSTINGER_FTP_PATH }}
