@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Something is broken in the pipeline, a game, or content
+about: Something is broken in the app, the game, or content
 title: '[BUG] '
 labels: bug
 assignees: ''
@@ -10,10 +10,10 @@ assignees: ''
 A clear description of what's wrong.
 
 ## Where
-- [ ] Content (a specific chapter/word)
-- [ ] Pipeline (validate/load/export/migrate)
-- [ ] Frontend game
-- [ ] CI/CD
+- [ ] Content (a specific lesson, dialogue, or word)
+- [ ] Backend / game rules
+- [ ] Frontend
+- [ ] CI/CD or deployment
 
 ## Steps to reproduce
 1. ...
@@ -22,4 +22,4 @@ A clear description of what's wrong.
 What should happen instead.
 
 ## Additional context
-Logs, screenshots, etc.
+Logs, screenshots, browser if relevant.

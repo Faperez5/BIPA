@@ -1,21 +1,24 @@
 ## Description
 
-What does this PR change, and why?
+What does this change, and why? Link the task number from `_docs/tasks.md`.
 
 ## Type of change
 
-- [ ] Content (vocab/chapter YAML)
-- [ ] Pipeline (validate/load/export scripts, migrations)
-- [ ] Frontend (games, static assets)
+- [ ] Feature
+- [ ] Fix
+- [ ] Content (lessons, dialogue, vocabulary)
+- [ ] Chore (tooling, dependencies, docs)
 - [ ] CI/CD
-- [ ] Other
 
 ## How was this tested?
 
-- [ ] Ran `make validate` / `make test` locally
-- [ ] CI checks pass
+- [ ] `uv run pytest` passes locally
+- [ ] `uv run ruff check .` clean
+- [ ] CI is green
 
 ## Checklist
 
-- [ ] No generated files (`public/data/*.json`) committed
-- [ ] Migrations are additive/backwards-compatible if touching `db/migrations/`
+- [ ] No new dependency added without asking
+- [ ] At most one new migration, generated on top of current `main`
+- [ ] API changes are additive — no field removed in the same PR that stops using it
+- [ ] No secrets, `.env` values, or account details committed

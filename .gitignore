@@ -5,16 +5,21 @@ __pycache__/
 venv/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 
-# Generated content (rebuilt by the pipeline, not committed)
-public/data/*.json
+# Node / frontend build
+node_modules/
+dist/
 
 # Env / secrets
 .env
 *.local.env
 
+# Local-only notes (account identifiers, paths) — never committed
+*.local.md
+
 # Docker / DB
-mysql-data/
+postgres-data/
 
 # Editor / OS
 .vscode/
