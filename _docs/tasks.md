@@ -27,7 +27,7 @@ Description: Introduce `django-environ` and move `SECRET_KEY`, `DEBUG`, `DATABAS
 
 ## 4. CI test job
 Goal: Every pull request runs lint and tests automatically.
-Description: Replace the existing `.github/workflows/deploy.yml` with a `test` job that runs `ruff check`, `pytest` against a `postgres:18` service container, and `manage.py makemigrations --check --dry-run` so a model change without a matching migration fails the build. This project is partly a CI/CD practice vehicle, so the workflow should be readable and commented.
+Description: Replace the existing `.github/workflows/deploy.yml` with a `test` job that runs `ruff check`, `pytest` against a `postgres:18` service container, and `manage.py makemigrations --check --dry-run` so a model change without a matching migration fails the build. Trigger it on `[push, pull_request]` — the workflow being replaced runs on pushes to `main` only, which means failures surface after a merge instead of before it. This project is partly a CI/CD practice vehicle, so the workflow should be readable and commented.
 
 ## 5. Custom user model
 Goal: A project-owned user model exists before any user rows do.
