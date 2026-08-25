@@ -12,8 +12,10 @@ covers only how to work through it.
 
 Trunk-based, since this is a solo project — no perpetual `dev` branch.
 
-- **`main`** — always deployable. Protected: no direct pushes, pull requests
-  required, CI must pass before merge.
+- **`main`** — always deployable. Protected on GitHub: no direct pushes, pull
+  requests required (zero approvals, since this is a solo project), linear
+  history enforced, force pushes and deletion blocked. A required CI status
+  check is added by task 42, once task 4 has created the job to require.
 - **Everything else** — short-lived, branched from `main`, merged back via PR,
   then deleted.
 

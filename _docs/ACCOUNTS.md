@@ -32,13 +32,18 @@ tier that fits comfortably. Realistic running cost is **$5–15/month**.
 | **Docker Engine** | Free | No | No |
 | **Python 3.13, uv, Node 24** | Free | No | No |
 
-- **GitHub free plan** gives unlimited private repos, 2,000 Actions minutes per
-  month on private repos, and 500 MB of artifact storage.
-  **Consider making the repo public.** Actions minutes are unlimited and free on
-  public repositories, so it removes your only real CI budget constraint — and
-  your README already frames this as a DevOps practice project, which is
-  portfolio material. The tradeoff is that your course content becomes readable
-  by anyone.
+- **GitHub free plan.** This repository is **public**, so Actions minutes are
+  unlimited and free — CI is not a budget constraint, and you can run the test
+  suite on every push without counting. (Private repos are capped at 2,000
+  minutes per month, which is what this would otherwise have cost.)
+  The tradeoff already accepted: the lesson and dialogue content is readable by
+  anyone. If a paid tier is ever added, the content may need to move to a
+  private repository — see the open question in [plan.md](plan.md) §9.
+- **Commit email.** Git is configured to use the GitHub noreply alias
+  (`78918575+Faperez5@users.noreply.github.com`) so no personal address appears
+  in the public history. Keep "Block command line pushes that expose my email"
+  enabled in GitHub's email settings — the "keep my email private" option alone
+  does not cover commits pushed from the command line.
 - **Docker** — you're on Linux, so install Docker Engine from your package
   manager. It's fully free with no licensing question. (Docker Desktop's
   commercial-use terms only matter on macOS and Windows.)
