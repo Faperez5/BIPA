@@ -176,3 +176,7 @@ Description: Build the run map as a Phaser 4 canvas layer beneath the existing R
 ## 41. Progress dashboard
 Goal: Learners can see how far they have come.
 Description: Build a dashboard showing per-track and per-stage completion, vocabulary encountered, and run history, reading from the progress rollup endpoints. Keep it honest about partial progress — most learners will have several tracks part-finished rather than any one complete.
+
+## 42. Require the CI check before merging
+Goal: A failing test suite actually blocks a merge to `main`.
+Description: The `main` branch is already protected — pull requests are required, force pushes and deletions are blocked, and linear history is enforced — but no status check is required yet, because requiring a check that does not exist would block every merge permanently. Once task 4 has created the `test` job and it has run at least once, add it as a required status check on `main` so that "CI must pass before merge" is enforced rather than merely documented. **Do this immediately after task 4**, out of numerical order.
